@@ -1,4 +1,4 @@
-Copyright (c) 2011 mach_and_bernie
+Copyright (c) 2011 North Florida Ruby Brigade
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
