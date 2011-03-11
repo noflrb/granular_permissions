@@ -1,0 +1,11 @@
+Description:
+    Creates migrations, and necessary folder structure and initializers for 
+    the GranularPermissions to work properly
+
+Example:
+    rails generate gp
+
+    This will create:
+        app/models/global_permissions/
+        app/models/permissions/
+        config/initializers/permission_flags.rb
