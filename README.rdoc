@@ -1,6 +1,17 @@
 = granular_permissions
 
-Let's users have granular, column-level permissions
+A Rails Engine that adds customizable permissions for your models
+based on roles, which in turn can have different permissions for each
+model in your application.
+
+GranularPermissions exposes all of the the following permissions
+for any number of models in your application:
+
+* Create, Read, Update, Delete (CRUD) permissions 
+* Make a column available or not available
+* Require that any specified column be filled in (validates_presence_of)
+* Add custom values for use in model-specific business rules
+
 
 == Contributing to granular_permissions
  
