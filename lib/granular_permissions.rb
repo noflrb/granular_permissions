@@ -1,5 +1,4 @@
 require 'active_support/concern'
-require "add_accessible_attributes"
 require "granular_permissions/crud_permissions"
 require "granular_permissions/require_permissions"
 require "granular_permissions/available_permissions"
@@ -7,7 +6,6 @@ require "granular_permissions/custom_permissions"
 
 module GranularPermissions
   extend ActiveSupport::Concern
-  include AddAccessibleAttributes
   include CrudPermissions
   include RequirePermissions
   include AvailablePermissions

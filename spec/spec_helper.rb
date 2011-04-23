@@ -1,12 +1,24 @@
+require 'rubygems'
+require 'bundler'
+require 'logger'
+require 'active_record'
+require 'database_cleaner'
+require 'rspec'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'rspec'
 require 'granular_permissions'
 
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+ActiveRecord::Base.logger = Logger.new(File.dirname(__FILE__) + '/support/debug.log')
+ActiveRecord::Base.configurations = YAML::load_file(File.dirname(__FILE__) + '/support/database.yml')
+ActiveRecord::Base.establish_connection(ENV['DB'] || 'sqlite3')
+
+ActiveRecord::Base.silence do
+  ActiveRecord::Migration.verbose = false
+
+  load(File.dirname(__FILE__) + '/support/schema.rb')
+  load(File.dirname(__FILE__) + '/support/models.rb')
+end
 
 RSpec.configure do |config|
-  
+
 end
